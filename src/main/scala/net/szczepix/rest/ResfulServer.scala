@@ -39,7 +39,7 @@ object RestfulServer extends RestfulServerRouting {
   implicit val executionContext: ExecutionContext = actorSystem.dispatcher
 
   def start() = {
-    Http().bindAndHandle(restfulRoutes, httpInterface, httpPort)
+    Http().bindAndHandle(routes, httpInterface, httpPort)
 
     logger.info(s"Server online: $httpInterface : $httpPort")
 
@@ -51,7 +51,7 @@ trait RestfulServerRouting extends Json4sSupport {
 
   val logger: Logger
 
-  val restfulRoutes =
+  val routes =
     pathPrefix(httpRest / "get") {
       get {
         respondWithHeaders(RawHeader("Access-Control-Allow-Origin", "*")) {
