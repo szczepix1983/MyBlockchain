@@ -9,11 +9,11 @@
 *.DS_Store
 *.lock
 *.bak
+*/target/
 
 #####
 # Build files and folders
 #####
-target/
 classes/
 out/
 bin/
